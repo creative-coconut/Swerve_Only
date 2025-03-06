@@ -1,0 +1,302 @@
+{
+  "version": 1.0,
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 1.8878506230621577,
+        "y": 1.3350353662190912
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 1.7121880748754352,
+        "y": 1.979131376237074
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 0.8104536608502588,
+        "y": 4.42669621430541
+      },
+      "prevControl": {
+        "x": 0.9626945359454185,
+        "y": 3.4781184540971077
+      },
+      "nextControl": {
+        "x": 0.7469766203446431,
+        "y": 4.822207005148092
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 7.696425549769787,
+        "y": 0.7612043754757987
+      },
+      "prevControl": {
+        "x": 4.124620403306426,
+        "y": 1.2999028565817468
+      },
+      "nextControl": {
+        "x": 8.296124501263625,
+        "y": 0.6707579762341052
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 0.8104536608502588,
+        "y": 4.42669621430541
+      },
+      "prevControl": {
+        "x": 1.8878506230621577,
+        "y": 1.6629387895009728
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": null
+    }
+  ],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 1,
+      "rotationDegrees": -59.34933204294712,
+      "rotateFast": false
+    },
+    {
+      "waypointRelativePos": 2,
+      "rotationDegrees": 0,
+      "rotateFast": false
+    }
+  ],
+  "constraintZones": [],
+  "eventMarkers": [
+    {
+      "name": "Shooting 1",
+      "waypointRelativePos": 1.0,
+      "command": {
+        "type": "sequential",
+        "data": {
+          "commands": [
+            {
+              "type": "named",
+              "data": {
+                "name": "Run Feeder"
+              }
+            },
+            {
+              "type": "wait",
+              "data": {
+                "waitTime": 0.5
+              }
+            },
+            {
+              "type": "sequential",
+              "data": {
+                "commands": [
+                  {
+                    "type": "named",
+                    "data": {
+                      "name": "Stop Shooter"
+                    }
+                  },
+                  {
+                    "type": "named",
+                    "data": {
+                      "name": "Stop Feeder"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Prepare Shooter",
+      "waypointRelativePos": 0.45,
+      "command": {
+        "type": "sequential",
+        "data": {
+          "commands": [
+            {
+              "type": "named",
+              "data": {
+                "name": "Shooter Shooting Angle"
+              }
+            },
+            {
+              "type": "named",
+              "data": {
+                "name": "Run Shooter"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Prepare Intake",
+      "waypointRelativePos": 1.85,
+      "command": {
+        "type": "sequential",
+        "data": {
+          "commands": [
+            {
+              "type": "named",
+              "data": {
+                "name": "Lower Intake"
+              }
+            },
+            {
+              "type": "named",
+              "data": {
+                "name": "Run Intake"
+              }
+            },
+            {
+              "type": "named",
+              "data": {
+                "name": "Shooter Default Angle"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Finished Intaking",
+      "waypointRelativePos": 2.35,
+      "command": {
+        "type": "sequential",
+        "data": {
+          "commands": [
+            {
+              "type": "named",
+              "data": {
+                "name": "Stop Intake"
+              }
+            },
+            {
+              "type": "named",
+              "data": {
+                "name": "Raise Intake"
+              }
+            },
+            {
+              "type": "wait",
+              "data": {
+                "waitTime": 0.5
+              }
+            },
+            {
+              "type": "named",
+              "data": {
+                "name": "Run Note Transfer"
+              }
+            },
+            {
+              "type": "wait",
+              "data": {
+                "waitTime": 0.1
+              }
+            },
+            {
+              "type": "named",
+              "data": {
+                "name": "Stop Note Transfer"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Prepare Shooter 2",
+      "waypointRelativePos": 2.7,
+      "command": {
+        "type": "sequential",
+        "data": {
+          "commands": [
+            {
+              "type": "named",
+              "data": {
+                "name": "Shooter Shooting Angle"
+              }
+            },
+            {
+              "type": "named",
+              "data": {
+                "name": "Run Shooter"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Shooting 2",
+      "waypointRelativePos": 3.0,
+      "command": {
+        "type": "sequential",
+        "data": {
+          "commands": [
+            {
+              "type": "named",
+              "data": {
+                "name": "Run Feeder"
+              }
+            },
+            {
+              "type": "wait",
+              "data": {
+                "waitTime": 0.5
+              }
+            },
+            {
+              "type": "sequential",
+              "data": {
+                "commands": [
+                  {
+                    "type": "named",
+                    "data": {
+                      "name": "Stop Shooter"
+                    }
+                  },
+                  {
+                    "type": "named",
+                    "data": {
+                      "name": "Stop Feeder"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "globalConstraints": {
+    "maxVelocity": 5.2,
+    "maxAcceleration": 5.2,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": -60.255118703057725,
+    "rotateFast": false
+  },
+  "reversed": false,
+  "folder": null,
+  "previewStartingState": {
+    "rotation": 0,
+    "velocity": 0
+  },
+  "useDefaultConstraints": true
+}

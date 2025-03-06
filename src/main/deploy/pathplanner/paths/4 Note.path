@@ -1,0 +1,360 @@
+{
+  "version": 1.0,
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 1.3374413054104268,
+        "y": 5.515804013063089
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 2.337441305410427,
+        "y": 5.515804013063089
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 2.4031274310765443,
+        "y": 5.515804013063089
+      },
+      "prevControl": {
+        "x": 2.028380661611536,
+        "y": 5.5040931765173085
+      },
+      "nextControl": {
+        "x": 2.7778742005415524,
+        "y": 5.52751484960887
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 1.3374413054104268,
+        "y": 5.515804013063089
+      },
+      "prevControl": {
+        "x": 1.7004772383296536,
+        "y": 5.340141464876368
+      },
+      "nextControl": {
+        "x": 1.247425380268875,
+        "y": 5.559360105873518
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 2.578789979263267,
+        "y": 6.979658581285779
+      },
+      "prevControl": {
+        "x": 1.028778662890611,
+        "y": 7.25644631635233
+      },
+      "nextControl": {
+        "x": 2.9066934025451485,
+        "y": 6.921104398556871
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 1.3374413054104268,
+        "y": 5.515804013063089
+      },
+      "prevControl": {
+        "x": 1.2707834427220723,
+        "y": 7.137812005146383
+      },
+      "nextControl": {
+        "x": 1.3725738150477713,
+        "y": 4.66091294522104
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 2.4031274310765443,
+        "y": 4.098792791023527
+      },
+      "prevControl": {
+        "x": 1.283050751274614,
+        "y": 4.143595858215602
+      },
+      "nextControl": {
+        "x": 2.695898344721082,
+        "y": 4.087081954477746
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 1.3374413054104268,
+        "y": 5.515804013063089
+      },
+      "prevControl": {
+        "x": 1.290597959227301,
+        "y": 4.075371117931965
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": null
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "eventMarkers": [
+    {
+      "name": "Raise Intake & Transfer 2nd",
+      "waypointRelativePos": 1.2000000000000002,
+      "command": {
+        "type": "sequential",
+        "data": {
+          "commands": [
+            {
+              "type": "named",
+              "data": {
+                "name": "Stop Intake"
+              }
+            },
+            {
+              "type": "wait",
+              "data": {
+                "waitTime": 0.1
+              }
+            },
+            {
+              "type": "named",
+              "data": {
+                "name": "Run Note Transfer"
+              }
+            },
+            {
+              "type": "wait",
+              "data": {
+                "waitTime": 0.3
+              }
+            },
+            {
+              "type": "named",
+              "data": {
+                "name": "Shooter Shooting Angle"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Shoot 2nd",
+      "waypointRelativePos": 0,
+      "command": {
+        "type": "sequential",
+        "data": {
+          "commands": [
+            {
+              "type": "named",
+              "data": {
+                "name": "Run Feeder"
+              }
+            },
+            {
+              "type": "wait",
+              "data": {
+                "waitTime": 0.25
+              }
+            },
+            {
+              "type": "named",
+              "data": {
+                "name": "Stop Feeder"
+              }
+            },
+            {
+              "type": "named",
+              "data": {
+                "name": "Shooter Default Angle"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Run Intake 3rd",
+      "waypointRelativePos": 2.35,
+      "command": {
+        "type": "sequential",
+        "data": {
+          "commands": [
+            {
+              "type": "named",
+              "data": {
+                "name": "Run Intake"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Raise Intake & Transfer 3rd",
+      "waypointRelativePos": 2.9499999999999997,
+      "command": {
+        "type": "sequential",
+        "data": {
+          "commands": [
+            {
+              "type": "named",
+              "data": {
+                "name": "Stop Intake"
+              }
+            },
+            {
+              "type": "wait",
+              "data": {
+                "waitTime": 0.1
+              }
+            },
+            {
+              "type": "named",
+              "data": {
+                "name": "Run Note Transfer"
+              }
+            },
+            {
+              "type": "wait",
+              "data": {
+                "waitTime": 0.3
+              }
+            },
+            {
+              "type": "named",
+              "data": {
+                "name": "Shooter Shooting Angle"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Shoot 3rd",
+      "waypointRelativePos": 4.0,
+      "command": {
+        "type": "sequential",
+        "data": {
+          "commands": [
+            {
+              "type": "named",
+              "data": {
+                "name": "Run Feeder"
+              }
+            },
+            {
+              "type": "wait",
+              "data": {
+                "waitTime": 0.25
+              }
+            },
+            {
+              "type": "named",
+              "data": {
+                "name": "Stop Feeder"
+              }
+            },
+            {
+              "type": "named",
+              "data": {
+                "name": "Shooter Default Angle"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Run Intake 4th",
+      "waypointRelativePos": 4.25,
+      "command": {
+        "type": "sequential",
+        "data": {
+          "commands": [
+            {
+              "type": "named",
+              "data": {
+                "name": "Run Intake"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Raise Intake & Trasfer 4th",
+      "waypointRelativePos": 5.3,
+      "command": {
+        "type": "sequential",
+        "data": {
+          "commands": [
+            {
+              "type": "named",
+              "data": {
+                "name": "Stop Intake"
+              }
+            },
+            {
+              "type": "wait",
+              "data": {
+                "waitTime": 0.1
+              }
+            },
+            {
+              "type": "named",
+              "data": {
+                "name": "Run Note Transfer"
+              }
+            },
+            {
+              "type": "wait",
+              "data": {
+                "waitTime": 0.3
+              }
+            },
+            {
+              "type": "named",
+              "data": {
+                "name": "Shooter Shooting Angle"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "globalConstraints": {
+    "maxVelocity": 5.2,
+    "maxAcceleration": 5.2,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 0.0,
+    "rotateFast": false
+  },
+  "reversed": false,
+  "folder": null,
+  "previewStartingState": {
+    "rotation": 0,
+    "velocity": 0
+  },
+  "useDefaultConstraints": true
+}
