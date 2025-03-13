@@ -21,14 +21,18 @@ import edu.wpi.first.math.filter.Debouncer;
 import edu.wpi.first.math.filter.Debouncer.DebounceType;
 import edu.wpi.first.wpilibj.smartdashboard.*;
 import frc.robot.Constants.OperatorConstants;
+import frc.robot.commands.Subystems.RunHopper;
+import frc.robot.commands.Subystems.RunIntake;
 import frc.robot.subsystems.swervedrive.SwerveSubsystem;
+import frc.robot.subsystems.intake.Intake;
+import frc.robot.subsystems.hopper.Hopper;
+import frc.robot.subsystems.elevator.Elevator;
 import frc.robot.subsystems.PhotonVision;
 import com.pathplanner.lib.auto.NamedCommands;
 import edu.wpi.first.wpilibj.RobotBase;
-
 import java.io.File;
 import com.pathplanner.lib.auto.AutoBuilder;
-//import com.pathplanner.lib.auto.NamedCommands;
+
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a "declarative" paradigm, very
@@ -37,6 +41,8 @@ import com.pathplanner.lib.auto.AutoBuilder;
  */
 public class RobotContainer
 {
+  private final Intake intake = new Intake();
+  private final Hopper hopper = new Hopper();
 
   //Create Auto Chooser
   private final SendableChooser<Command> autoChooser;
@@ -48,46 +54,30 @@ public class RobotContainer
   // CommandJoystick rotationController = new CommandJoystick(1);
   // Replace with CommandPS4Controller or CommandJoystick if needed
   public CommandXboxController manipXbox = new CommandXboxController(1);
-  public XboxController otherManipXbox = new XboxController(1);
+  public XboxController otherManipXbox = new XboxController(2);
 
   // CommandJoystick driverController   = new CommandJoystick(3);//(OperatorConstants.DRIVER_CONTROLLER_PORT);
   public XboxController driverXbox = new XboxController(0);
   public CommandXboxController driverXboxCommand = new CommandXboxController(0);
-
-  //Controller Triggers
-  /*Trigger driverRTHeld = driverXboxCommand.axisGreaterThan(3,0.65);
-  Trigger manipRTHeld = manipXbox.axisGreaterThan(3, 0.65);
-  Trigger manipRTRelease = manipXbox.axisLessThan(3, 0.65);
-  Trigger manipLTHeld = manipXbox.axisGreaterThan(2, 0.65);
-  Trigger manipRB = manipXbox.button(6);
-  */
 
   /**
    * The container for the robot. Contains subsystems, OI devices, and commands.
    */
   public RobotContainer()
   {
+    //Register Named Commands for PathPlanner
+    //NamedCommands.registerCommand("Run Intake", intake.runIntakeAuto());
+    //NamedCommands.registerCommand("Run Hopper", hopper.runHopperAuto());
 
+    
     //Build Auto-Chooser
     //Default auto does nothing, change later if you want a specific default auto
     autoChooser = AutoBuilder.buildAutoChooser("Do Nothing");
     SmartDashboard.putData("Auto Chooser", autoChooser);
 
+
     // Configure the trigger bindings
     configureBindings();
-
-    /*AbsoluteDriveAdv closedAbsoluteDriveAdv = new AbsoluteDriveAdv(drivebase,
-                                                                   () -> MathUtil.applyDeadband(driverXbox.getLeftY(),
-                                                                                                OperatorConstants.LEFT_Y_DEADBAND),
-                                                                   () -> MathUtil.applyDeadband(driverXbox.getLeftX(),
-                                                                                                OperatorConstants.LEFT_X_DEADBAND),
-                                                                   () -> MathUtil.applyDeadband(driverXbox.getRightX(),
-                                                                                                OperatorConstants.RIGHT_X_DEADBAND),
-                                                                   driverXbox::getYButtonPressed,
-                                                                   driverXbox::getAButtonPressed,
-                                                                   driverXbox::getXButtonPressed,
-                                                                   driverXbox::getBButtonPressed);
-*/
 
     // Applies deadbands and inverts controls because joysticks
     // are back-right positive while robot
@@ -105,14 +95,6 @@ public class RobotContainer
     // controls are front-left positive
     // left stick controls translation
     // right stick controls the angular velocity of the robot
-
-    
-    /*Command driveFieldOrientedAnglularVelocity = drivebase.driveCommand(
-        () -> MathUtil.applyDeadband(driverXbox.getLeftY(), OperatorConstants.LEFT_Y_DEADBAND),
-        () -> MathUtil.applyDeadband(driverXbox.getLeftX(), OperatorConstants.LEFT_X_DEADBAND),
-        () -> driverXbox.getRawAxis(2));
-        */
-
     Command driveFieldOrientedDirectAngleSim = drivebase.simDriveCommand(
         () -> -MathUtil.applyDeadband(driverXbox.getLeftY(), OperatorConstants.LEFT_Y_DEADBAND),
         () -> -MathUtil.applyDeadband(driverXbox.getLeftX(), OperatorConstants.LEFT_X_DEADBAND),
@@ -142,6 +124,13 @@ public class RobotContainer
         Commands.deferredProxy(() -> drivebase.driveToPose(
                                    new Pose2d(new Translation2d(4, 4), Rotation2d.fromDegrees(0)))
                               ));
+    
+    //button commands
+    //hopper controls
+    new JoystickButton(otherManipXbox, 5).onTrue(hopper.runLeft(hopper.hopperSpeed));
+    new JoystickButton(otherManipXbox, 6).onTrue(hopper.runRight(hopper.hopperSpeed));
+    new JoystickButton(otherManipXbox, 11).onTrue(hopper.reverseLeft(hopper.reverseHopperSpeed));
+    new JoystickButton(otherManipXbox, 12).onTrue(hopper.reverseRight(hopper.reverseHopperSpeed));    
   }
 
 
