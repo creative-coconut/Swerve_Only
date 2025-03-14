@@ -14,7 +14,7 @@ public class Hopper extends SubsystemBase {
   public SparkMax hopperA = new SparkMax(9, MotorType.kBrushless);
   public SparkMax hopperB = new SparkMax(10, MotorType.kBrushless);
   
-  public double hopperSpeed = 0.95; //from 2024 code, untested
+  public double hopperSpeed = 0.15; //from 2024 code, untested
   public double reverseHopperSpeed = 0.5; //from 2024 code, untested
 
   public Hopper() {}

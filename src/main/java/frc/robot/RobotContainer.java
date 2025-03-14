@@ -128,9 +128,9 @@ public class RobotContainer
     //button commands
     //hopper controls
     new JoystickButton(otherManipXbox, 5).onTrue(hopper.runLeft(hopper.hopperSpeed));
-    new JoystickButton(otherManipXbox, 6).onTrue(hopper.runRight(hopper.hopperSpeed));
-    new JoystickButton(otherManipXbox, 11).onTrue(hopper.reverseLeft(hopper.reverseHopperSpeed));
-    new JoystickButton(otherManipXbox, 12).onTrue(hopper.reverseRight(hopper.reverseHopperSpeed));    
+    new JoystickButton(otherManipXbox, 5).onTrue(hopper.runRight(hopper.hopperSpeed));
+    new JoystickButton(otherManipXbox, 6).onTrue(hopper.reverseLeft(hopper.reverseHopperSpeed));
+    new JoystickButton(otherManipXbox, 6).onTrue(hopper.reverseRight(hopper.reverseHopperSpeed));    
   }
 
 

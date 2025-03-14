@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class Intake extends SubsystemBase {
     public SparkMax intake = new SparkMax(11, MotorType.kBrushless);
   
-    public double intakeSpeed = 0.95; //from 2024 code, untested
+    public double intakeSpeed = 0.4; //from 2024 code, untested
     public double outtakeSpeed = .5; //from 2024 code, untested
 
     public Intake() {}
